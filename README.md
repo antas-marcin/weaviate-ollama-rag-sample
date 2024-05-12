@@ -34,3 +34,12 @@ Pull llama3 model. Please note that you need at least 5GB of free space on your 
 ```sh
 docker exec -i generative-ollama /bin/ollama pull llama3
 ```
+
+Prompts
+---------
+
+Create a tweet prompt:
+
+```
+Create a tweet recommending a book from {author} - {title} using this description below. Use hashtags and emojis.
+```

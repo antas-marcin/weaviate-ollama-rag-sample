@@ -1,1 +1,2 @@
-docker_data/
+.docker_data/
+.venv/
