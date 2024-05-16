@@ -23,16 +23,10 @@ docker compose up -d
 
 Please note that below operations take some time to succeed.
 
-Pull vectorizer model. Please note that you need at least 300MB of free space on your disk.
+Pull [Aya](https://cohere.com/research/aya) model. It's an open source multi linugal large language model from Cohere. Please note that you need at least 5GB of free space on your disk.
 
 ```sh
-docker exec -i text2vec-ollama /bin/ollama pull nomic-embed-text
-```
-
-Pull llama3 model. Please note that you need at least 5GB of free space on your disk.
-
-```sh
-docker exec -i generative-ollama /bin/ollama pull llama3
+docker exec -i generative-ollama ollama pull aya
 ```
 
 Prompts

@@ -9,6 +9,8 @@ services:
     - '8080'
     - --scheme
     - http
+    - --write-timeout=600s
+    - --read-timeout=600s
     image: cr.weaviate.io/semitechnologies/weaviate:1.25.0
     ports:
     - 8080:8080
@@ -34,6 +36,4 @@ services:
     container_name: generative-ollama
     volumes:
     - ./.docker_data/generative_ollama:/root/.ollama
-    environment:
-      ENABLE_CUDA: '0'
 ...

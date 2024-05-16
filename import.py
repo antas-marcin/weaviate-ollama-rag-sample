@@ -20,6 +20,7 @@ def _clear_schema(client: weaviate.WeaviateClient):
     logger.info("clear schema")
     client.collections.delete_all()
 
+
 def _create_schema(client: weaviate.WeaviateClient):
     logger.info("create Books collection")
     books = client.collections.create(
@@ -51,7 +52,7 @@ def _create_schema(client: weaviate.WeaviateClient):
         ],
         generative_config=Configure.Generative.ollama(
             api_endpoint="http://generative-ollama:11434",
-            model="llama3",
+            model="aya",
         )
     )
     assert books is not None
