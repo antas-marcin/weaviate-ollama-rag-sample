@@ -19,7 +19,7 @@ services:
     - ./.docker_data/weaviate:/var/lib/weaviate
     restart: on-failure:0
     environment:
-      TRANSFORMERS_INFERENCE_API: 'http://t2v-transformers:8080'
+      TRANSFORMERS_INFERENCE_API: 'http://t2v-transformers-baai-bge-m3-onnx:8080'
       QUERY_DEFAULTS_LIMIT: 25
       AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: 'true'
       PERSISTENCE_DATA_PATH: '/var/lib/weaviate'
@@ -27,7 +27,7 @@ services:
       DEFAULT_VECTORIZER_MODULE: 'none'
       MODULES_CLIENT_TIMEOUT: '120s'
       ENABLE_MODULES: 'text2vec-ollama,text2vec-transformers,generative-ollama'
-  t2v-transformers:
+  t2v-transformers-baai-bge-m3-onnx:
     image: cr.weaviate.io/semitechnologies/transformers-inference:baai-bge-m3-onnx
   t2v-transformers-mixedbread-ai-mxbai-embed:
     image: cr.weaviate.io/semitechnologies/transformers-inference:mixedbread-ai-mxbai-embed-large-v1-onnx
