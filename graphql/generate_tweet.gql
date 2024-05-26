@@ -1,0 +1,27 @@
+{
+  Get{
+    Books(
+      nearText:{
+        concepts:"Sister's love during world war 2"
+        targetVectors:"multi_lang"
+      }
+      limit:1
+    )
+    {
+      description
+      _additional{
+        id certainty
+        generate(
+          singleResult:{
+            prompt:"""
+Use lot's of emojis to create a short (max 15 words) and passionate tweet recommending a book from {author} title {title}, add hashtags at the end of the tweet, use this description: {description}
+            """
+          }
+        ){
+          singleResult
+          error
+        }
+      }
+    }
+  }
+}

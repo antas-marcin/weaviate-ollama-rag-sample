@@ -14,11 +14,12 @@ def run_queries():
         additional_config=AdditionalConfig(timeout=Timeout(init=2, query=300, insert=120)),
     ) as client:
         _embedding_models(client)
-        _generative_ai(client)
+        _gen_ai_tweet(client)
+        _gen_ai_translate(client)
 
 
 def _embedding_models(client: weaviate.WeaviateClient):
-    logger.warning("1. Difference between single and multi lingual embedding models")
+    logger.debug("1. Difference between single and multi lingual embedding models")
 
     query_pl="Miłość sióstr w czasach drugiej wojny światowej"
     query_en="Sister's love during world war 2"
@@ -40,12 +41,35 @@ def _embedding_models(client: weaviate.WeaviateClient):
     logger.success("{}", found_description)
 
 
-def _generative_ai(client: weaviate.WeaviateClient):
-    logger.warning("2. Simple RAG presentation")
+def _gen_ai_tweet(client: weaviate.WeaviateClient):
+    logger.debug("2a. Simple RAG presentation 1")
     prompt ="""
     Napisz krótkiego tweeta rekomendującego książkę {title} autorstwa {author}, użyj emotikonek i hashtagów,
     napisz go w języku francuskim, użyj do tego poniższego opisu:
     {description}"""
+
+    logger.warning("Generating response from a LLM may take some time as the model is running locally...")
+    logger.warning("Sending prompt:")
+    logger.success("{}", prompt)
+
+    books = client.collections.get("Books")
+    result = books.generate.near_text(
+        query="Miłość sióstr w czasach drugiej wojny światowej",
+        target_vector="multi_lang",
+        limit=1,
+        single_prompt=prompt
+    )
+
+    for obj in result.objects:
+        logger.warning("Received answer:")
+        logger.success("{}", obj.generated)
+
+
+def _gen_ai_translate(client: weaviate.WeaviateClient):
+    logger.debug("2b. Simple RAG presentation 2")
+    prompt ="""
+    Please translate given description to Spanish:
+    "{description}\""""
 
     logger.warning("Generating response from a LLM may take some time as the model is running locally...")
     logger.warning("Sending prompt:")

@@ -1,0 +1,17 @@
+{
+  Get{
+    Books(
+      nearText:{
+        concepts:"Miłość sióstr w czasach drugiej wojny światowej"
+        targetVectors:"multi_lang"
+      }
+      limit:1
+    )
+    {
+      description
+      _additional{
+        id certainty
+      }
+    }
+  }
+}
