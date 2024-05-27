@@ -1,5 +1,4 @@
 ---
-version: '3.4'
 services:
   weaviate:
     command:
@@ -11,7 +10,7 @@ services:
     - http
     - --write-timeout=600s
     - --read-timeout=600s
-    image: cr.weaviate.io/semitechnologies/weaviate:1.25.0
+    image: cr.weaviate.io/semitechnologies/weaviate:1.25.1
     ports:
     - 8080:8080
     - 50051:50051

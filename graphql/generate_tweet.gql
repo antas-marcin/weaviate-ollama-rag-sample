@@ -14,7 +14,7 @@
         generate(
           singleResult:{
             prompt:"""
-Use lot's of emojis to create a short (max 15 words) and passionate tweet recommending a book from {author} title {title}, add hashtags at the end of the tweet, use this description: {description}
+Use lot's of emojis to create a short (max 15 words) and passionate tweet in English language recommending a book from {author}, add hashtags at the end of the tweet, use this description: {description}
             """
           }
         ){

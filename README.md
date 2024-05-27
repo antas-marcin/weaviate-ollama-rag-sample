@@ -57,7 +57,7 @@ Data in this example has been vectorized using 2 embedding models (english only 
 Create a tweet prompt ([generate_tweet.gql](./graphql/generate_tweet.gql)):
 
 ```
-Use lot's of emojis to create a short (max 15 words) and passionate tweet recommending a book from {author} title {title}, add hashtags at the end of the tweet, use this description: {description}
+Use lot's of emojis to create a short (max 15 words) and passionate tweet in English language recommending a book from {author}, add hashtags at the end of the tweet, use this description: {description}
 ```
 
 🤖 Code samples
