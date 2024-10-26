@@ -52,7 +52,7 @@ def _create_schema(client: weaviate.WeaviateClient):
         ],
         generative_config=Configure.Generative.ollama(
             api_endpoint="http://generative-ollama:11434",
-            model="aya",
+            model="aya-expanse:8b",
         )
     )
     assert books is not None
