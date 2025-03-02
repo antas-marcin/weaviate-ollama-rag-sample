@@ -10,7 +10,7 @@ services:
     - http
     - --write-timeout=600s
     - --read-timeout=600s
-    image: cr.weaviate.io/semitechnologies/weaviate:1.27.0
+    image: cr.weaviate.io/semitechnologies/weaviate:1.29.0
     ports:
     - 8080:8080
     - 50051:50051
@@ -31,7 +31,7 @@ services:
   t2v-transformers-mixedbread-ai-mxbai-embed:
     image: cr.weaviate.io/semitechnologies/transformers-inference:mixedbread-ai-mxbai-embed-large-v1-onnx
   generative-ollama:
-    image: ollama/ollama:0.3.14
+    image: ollama/ollama:0.5.12
     container_name: generative-ollama
     volumes:
     - ./.docker_data/generative_ollama:/root/.ollama

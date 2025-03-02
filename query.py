@@ -1,11 +1,5 @@
 from loguru import logger
-import json, sys
 import weaviate
-from weaviate.classes.config import Property, DataType, Configure, ReferenceProperty
-from weaviate.classes.query import Filter, QueryReference
-from weaviate.classes.data import DataReference
-from weaviate.util import generate_uuid5
-from weaviate.collections.classes.config import ConsistencyLevel
 from weaviate.classes.init import AdditionalConfig, Timeout
 
 

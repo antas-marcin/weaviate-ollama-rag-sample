@@ -1,11 +1,7 @@
 from loguru import logger
 import json
 import weaviate
-from weaviate.classes.config import Property, DataType, Configure, ReferenceProperty
-from weaviate.classes.query import Filter, QueryReference
-from weaviate.classes.data import DataReference
-from weaviate.util import generate_uuid5
-from weaviate.collections.classes.config import ConsistencyLevel
+from weaviate.classes.config import Property, DataType, Configure
 
 
 def import_books():
@@ -46,6 +42,7 @@ def _create_schema(client: weaviate.WeaviateClient):
             Configure.NamedVectors.text2vec_transformers(
                 name="multi_lang",
                 source_properties=["description"],
+                inference_url="http://t2v-transformers-baai-bge-m3-onnx:8080",
                 vectorize_collection_name=False,
                 vector_index_config=Configure.VectorIndex.flat(),
             ),
